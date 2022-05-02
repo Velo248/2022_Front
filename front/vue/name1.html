@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script src="https://unpkg.com/vue@next"></script>
+
+    </head>
+
+    <body>
+        <div id="app">
+            <h1>성명</h1>
+            <div>
+                <p>성</p>
+                <input type="text" v-model="lastName"/>
+            </div>
+            <div>
+                <p>이름</p>
+                <input type="text" v-model="firstName"/>
+            </div>
+            <hr />
+            <span>{{fullName}}</span>
+        </div>
+        <script type="text/javascript">
+            let app = {
+                data() {
+                    return {
+                        lastName: '',
+                        firstName: '',
+                    };
+                },
+                computed: {
+                    fullName(){
+                        let s = this.lastName + this.firstName;
+                        return s;
+                    }
+                }
+            };
+            Vue.createApp(app).mount("#app");
+        </script>
+    </body>
+</html>

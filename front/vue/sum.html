@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script src="https://unpkg.com/vue@next"></script>
+
+    </head>
+
+    <body>
+        <div id="app">
+            <h1>합계</h1>
+            <div>
+                <p>form</p>
+                <input type="number" v-model="formNum"/>
+            </div>
+            <div>
+                <p>to</p>
+                <input type="number" v-model="toNum"/>
+            </div>
+            <hr />
+            <span>{{sum()}}</span>
+        </div>
+        <script type="text/javascript">
+            let app = {
+                data() {
+                    return {
+                        formNum: undefined,
+                        toNum: undefined,
+                    };
+                },
+                methods: {
+                    sum(){
+                        let s = 0;
+                        for( i = this.formNum; i<=this.toNum;i++){
+                            s += i;
+                        }
+                        return s;
+                    }
+                }
+            };
+            Vue.createApp(app).mount("#app");
+        </script>
+    </body>
+</html>

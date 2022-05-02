@@ -33,7 +33,7 @@
         <hr />
         <div>
             <label>합계</label>
-            <input type="text" v-model="total" v-bind:style="{color : color}" />
+            <input type="text" v-model="total" v-bind:style="{color : change}" />
         </div>
     </div>
 
@@ -43,16 +43,13 @@
                 return {
                     quantity: 1,
                     price: 150,
-                    color: "#f00"
+                    color: "red"
                 };
             },
             computed: {
-                change(){
-                    if(this.total >= 10000){
-                        return this.color = "#fff";
-                    }else{
-                        return this.color = "#f00";
-                    }
+                change: function(){
+                    return this.total <= 10000 ? this.color = "red" : this.color = "black";
+                  
                 },
                 total() {
                     return this.quantity * this.price;
